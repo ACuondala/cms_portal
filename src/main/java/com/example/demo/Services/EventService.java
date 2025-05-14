@@ -36,7 +36,7 @@ public class EventService {
 
     @Transactional
     public EventDto saveEvent(EventRequestDto eventDto) {
-
+        System.out.println("EVENT DTO: " + eventDto);
         Events events=new Events();
         EventMappers.dtoToModel(events,eventDto);
 
