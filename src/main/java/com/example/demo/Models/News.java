@@ -30,6 +30,10 @@ public class News {
 
     private String file;
 
+
+    @OneToOne(mappedBy="news")
+    private Slide slide;
+
     @Column(name="created_at")
     @CreationTimestamp
     private Instant createdAt;

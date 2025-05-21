@@ -4,6 +4,7 @@ import com.example.demo.Dtos.NewsDto;
 import com.example.demo.Dtos.NewsRequestDto;
 import com.example.demo.Models.News;
 import com.example.demo.Services.NewsService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value="/news")
+@Tag(name="News")
 public class NewsControllers {
     @Autowired
     private NewsService service;

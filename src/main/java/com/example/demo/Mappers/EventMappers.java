@@ -4,6 +4,8 @@ import com.example.demo.Dtos.EventDto;
 import com.example.demo.Dtos.EventRequestDto;
 import com.example.demo.Models.Events;
 
+import java.util.Optional;
+
 public class EventMappers {
 
     public static EventDto modelToDto(Events event){
@@ -19,9 +21,12 @@ public class EventMappers {
 
 
     public static void dtoToModel(Events event, EventRequestDto eventDto){
-        event.setTitle(eventDto.title());
-        event.setAddress(eventDto.address());
-        event.setEventDate(eventDto.eventDate());
-        event.setDescription(eventDto.description());
+
+        Optional.ofNullable(eventDto.title()).ifPresent(event::setTitle);
+        Optional.ofNullable(eventDto.address()).ifPresent(event::setAddress);
+        Optional.ofNullable(eventDto.eventDate()).ifPresent(event::setEventDate);
+        Optional.ofNullable(eventDto.description()).ifPresent(event::setDescription);
+
+
     }
 }

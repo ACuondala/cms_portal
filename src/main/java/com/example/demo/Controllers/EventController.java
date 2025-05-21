@@ -6,6 +6,7 @@ import com.example.demo.Dtos.NewsDto;
 import com.example.demo.Response.SuccessResponse;
 import com.example.demo.Services.EventService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/events")
+@Tag(name="Event")
 public class EventController {
 
 

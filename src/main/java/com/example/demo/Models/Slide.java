@@ -8,38 +8,34 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name="events")
+@Table(name = "slides")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Events {
+public class Slide {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     private String title;
-
-    private String address;
-
-    @Column(name="event_date")
-    private LocalDate eventDate;
-
-    private String description;
-
+    private String subTitle;
     private String file;
 
+    @Enumerated(EnumType.STRING)
     private StatusEnum status;
+    @OneToOne
+    @JoinColumn(name = "news_id", referencedColumnName="id", nullable=true)
+    private News news;
 
-    @OneToOne(mappedBy="event")
-    private Slide slide;
+    @OneToOne
+    @JoinColumn(name="event_id", referencedColumnName="id",nullable=true)
+    private Events event;
 
-    @Column(name = "created_at")
     @CreationTimestamp
+    @Column(name = "created_at")
     private Instant createdAt;
 }

@@ -13,12 +13,13 @@ public class SwaggerConfig {
     public OpenAPI customOpenApi(){
         return new OpenAPI()
                 .info(
-                        new Info().title("CMS_POrtal")
+                        new Info().title("CMS_Portal")
                                 .version("1.0")
                                 .description("CMS API documentation")
                                 .contact( new Contact()
-                                        .name("Anderson Cuondala Mendes da Costa")
                                         .email("acuondala@gmail.com")
+                                        .name("Anderson Cuondala Mendes da Costa")
+
                                 )
                 )
                 ;
